@@ -32,7 +32,7 @@ const AddTask = () => {
       const token = localStorage.getItem('token');
 
 
-      const response = await axios.post('http://localhost:5000/api/tasks', {
+      const response = await axios.post('https://taskify-beaz.onrender.com/api/tasks', {
         taskId, title, description, status, assignedTo
       }, {
         headers: {

@@ -15,7 +15,7 @@ const TaskDetails = () => {
     const fetchTask = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/api/tasks/${taskId}`, {
+        const response = await axios.get(`https://taskify-beaz.onrender.com/api/tasks/${taskId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTask(response.data);
@@ -35,7 +35,7 @@ const TaskDetails = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://localhost:5000/api/tasks/${taskId}`,
+        `https://taskify-beaz.onrender.com/api/tasks/${taskId}`,
         { title, description, status },
         { headers: { Authorization: `Bearer ${token}` } }
       );

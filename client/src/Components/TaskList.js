@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import '../App.css';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://taskify-beaz.onrender.com');
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
@@ -17,7 +17,7 @@ const TaskList = () => {
       try {
         console.log("Fetching tasks...");
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/tasks', {
+        const response = await axios.get('https://taskify-beaz.onrender.com/api/tasks', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTasks(response.data);
@@ -53,7 +53,7 @@ const TaskList = () => {
     e.stopPropagation();
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/tasks/${taskId}`, {
+      await axios.delete(`https://taskify-beaz.onrender.com/api/tasks/${taskId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(tasks.filter((task) => task.taskId !== taskId));
