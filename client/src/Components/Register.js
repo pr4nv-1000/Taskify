@@ -37,7 +37,7 @@ const Register = () => {
 
     try {
       // Send registration request to the backend API
-      const response = await axios.post('https://taskify-beaz.onrender.com/api/users/register', {
+      const response = await axios.post('https://taskify-qhip.onrender.com/api/users/register', {
         name,
         email,
         password,

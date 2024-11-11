@@ -18,7 +18,7 @@ const ModifyTask = () => {
     const fetchTask = async () => {
       try {
         const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
-        const response = await axios.get(`https://taskify-beaz.onrender.com/api/tasks/${taskId}`, {
+        const response = await axios.get(`https://taskify-qhip.onrender.com/api/tasks/${taskId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -52,7 +52,7 @@ const ModifyTask = () => {
         ...(task.status && { status: task.status }),
       };
 
-      const response = await axios.put(`https://taskify-beaz.onrender.com/api/tasks/${taskId}`, updatedTask, {
+      const response = await axios.put(`https://taskify-qhip.onrender.com/api/tasks/${taskId}`, updatedTask, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
