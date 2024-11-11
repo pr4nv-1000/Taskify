@@ -1,7 +1,6 @@
-// src/Components/Register.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';  // Make sure axios is installed
+import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
@@ -17,7 +16,6 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic form validation
     if (!name || !email || !password || !confirmPassword) {
       toast.error('Please fill in all fields');
       return;
@@ -36,18 +34,15 @@ const Register = () => {
     setIsLoading(true);
 
     try {
-      // Send registration request to the backend API
       const response = await axios.post('https://taskify-qhip.onrender.com/api/users/register', {
         name,
         email,
         password,
       });
 
-      // If registration is successful
       toast.success('Registration successful');
-      navigate('/login'); // Redirect to login page
+      navigate('/login');
     } catch (error) {
-      // Handle any errors from the API
       toast.error(error.response ? error.response.data.message : 'Registration failed');
     } finally {
       setIsLoading(false);

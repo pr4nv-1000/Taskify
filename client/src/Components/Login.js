@@ -1,7 +1,6 @@
-// src/Components/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';  // Make sure axios is installed
+import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
@@ -15,7 +14,6 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic form validation
     if (!email || !password) {
       toast.error('Please fill in both fields');
       return;
@@ -29,21 +27,16 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      // Send login request to the backend API
       const response = await axios.post('https://taskify-qhip.onrender.com/api/users/login', {
         email,
         password,
       });
 
-      // Check if login is successful
       if (response.data.token) {
-        // Save the token in localStorage
         localStorage.setItem('token', response.data.token);
 
-        // Display success message
         toast.success('Login successful');
 
-        // Redirect to the tasks page
         navigate('/tasks');
       } else {
         toast.error('Invalid credentials');

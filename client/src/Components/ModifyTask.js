@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios'; // Import axios for making API requests
+import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ModifyTask = () => {
@@ -17,7 +17,7 @@ const ModifyTask = () => {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
+        const token = localStorage.getItem('token');
         const response = await axios.get(`https://taskify-qhip.onrender.com/api/tasks/${taskId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -35,7 +35,6 @@ const ModifyTask = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Only proceed if at least one field is changed
     if (!task.title && !task.description && !task.status) {
       toast.error('Please fill in at least one field');
       return;
