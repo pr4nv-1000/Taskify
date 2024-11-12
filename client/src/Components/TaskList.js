@@ -71,6 +71,7 @@ const TaskList = () => {
           <tr>
             <th style={{ border: '1px solid #ddd', padding: '8px' }}>Task ID</th>
             <th style={{ border: '1px solid #ddd', padding: '8px' }}>Title</th>
+            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Description</th>
             <th style={{ border: '1px solid #ddd', padding: '8px' }}>Assigned To</th>
             <th style={{ border: '1px solid #ddd', padding: '8px' }}>Status</th>
             <th style={{ border: '1px solid #ddd', padding: '8px' }}>Actions</th>
@@ -85,6 +86,7 @@ const TaskList = () => {
             >
               <td style={{ border: '1px solid #ddd', padding: '8px' }}>{task.taskId}</td>
               <td style={{ border: '1px solid #ddd', padding: '8px' }}>{task.title}</td>
+              <td style={{ border: '1px solid #ddd', padding: '8px' }}>{task.description}</td>
               <td style={{ border: '1px solid #ddd', padding: '8px' }}>{task.assignedTo}</td>
               <td style={{ border: '1px solid #ddd', padding: '8px' }}>{task.status}</td>
               <td style={{ border: '1px solid #ddd', padding: '8px' }}>
